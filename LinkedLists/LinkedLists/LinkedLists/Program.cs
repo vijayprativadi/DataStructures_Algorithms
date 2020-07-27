@@ -28,6 +28,26 @@ namespace LinkedLists
             //Find Length of Linked List
             Console.WriteLine("Length of the Linked List is {0}", demoLinkedList.GetLengthofLinkedList());
 
+            //Check If node exists 
+            int nodePosition;
+            bool nodeExists = demoLinkedList.CheckIfNodeExists(51, out nodePosition);
+            Console.WriteLine(nodeExists ? "Node exists at " + nodePosition : "Node does not exists");
+
+            //Get Node By Value & Position
+            Console.WriteLine("Getting Node By Value & Position: " + demoLinkedList.GetNodeByValueandPosition(51, 3).data);
+
+            //Get Node By Position
+            Console.WriteLine("Getting Node By Position: " + demoLinkedList.GetNodeAtPosition(3).data);
+
+            //Get Previous Node
+            Console.WriteLine("Previous Node is: " + demoLinkedList.GetPreviousNode(34).data);
+
+            //Get Next Node
+            Console.WriteLine("Next Node is: " + demoLinkedList.GetNextNode(34).data);
+
+            //Add a Node By Value & Position
+            demoLinkedList.AddNodeAtPosition(21, 2);
+
             Console.ReadKey();
 
         }

@@ -51,6 +51,25 @@ namespace LinkedLists
             }
         }
 
+        public void AddNodeAtPosition(int data, int position)
+        {
+            Node node = new Node(data);
+            if (position == 1)
+            {
+                AddNodeAtFirst(data);
+            }
+            else
+            {
+                Node previousNode = GetNodeAtPosition(position - 1);
+                Node nextNode = GetNodeAtPosition(position);
+
+                previousNode.next = node;
+                node.next = nextNode;
+
+            }
+            GetAllNodesWithPointers();
+        }
+
         public void GetAllNodesWithPointers()
         {
             if (head == null)
@@ -111,6 +130,107 @@ namespace LinkedLists
             }
 
             return counter;
+        }
+
+        public bool CheckIfNodeExists(int data, out int nodePosition)
+        {
+            Node node = head;
+            nodePosition = -1;
+            int counter = 1;
+            bool nodeExists = false;
+
+            while (node != null)
+            {
+                if (node.data == data)
+                {
+                    nodeExists = true;
+                    nodePosition = counter;
+                    break;
+                }
+                node = node.next;
+                counter++;
+            }
+            return nodeExists;
+        }
+
+        public Node GetNodeByValueandPosition(int value, int nodePosition)
+        {
+            Node node = head;
+            int counter = 1;
+
+            if (nodePosition == 1 && node.data == value)
+                return head;
+
+            while (node != null)
+            {
+                if (node.data == value && nodePosition == counter)
+                    return node;
+                else
+                {
+                    node = node.next;
+                    counter++;
+                }
+            }
+            return null;
+        }
+
+        public Node GetPreviousNode(int value)
+        {
+            Node previousNode = head;
+            int nodePosition;
+            if (CheckIfNodeExists(value, out nodePosition))
+            {
+                if (nodePosition != 1)
+                {
+                    previousNode = GetNodeAtPosition(nodePosition - 1);
+                }
+
+            }
+            else
+            {
+                Console.WriteLine("Node does not exist");
+            }
+            return previousNode;
+        }
+
+        public Node GetNextNode(int value)
+        {
+            Node nextNode = head;
+            int nodePosition;
+            if (CheckIfNodeExists(value, out nodePosition))
+            {
+                if (nodePosition != 1)
+                {
+                    nextNode = GetNodeAtPosition(nodePosition + 1);
+                }
+
+            }
+            else
+            {
+                Console.WriteLine("Node does not exist");
+            }
+            return nextNode;
+        }
+
+        public Node GetNodeAtPosition(int nodePosition)
+        {
+            Node node = head;
+            int counter = 1;
+
+            if (nodePosition == 1)
+                return head;
+
+            while (counter <= GetLengthofLinkedList())
+            {
+                if (nodePosition == counter)
+                    return node;
+                else
+                {
+                    node = node.next;
+                    counter++;
+                }
+            }
+            return null;
         }
 
         private Node GetLastNode()
