@@ -1,2 +1,2 @@
 # DataStructures_Algorithms
- Common Repo for DS and Algo
+ Common Repo for Linked Lists
