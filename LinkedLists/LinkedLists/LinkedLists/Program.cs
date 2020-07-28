@@ -48,6 +48,10 @@ namespace LinkedLists
             //Add a Node By Value & Position
             demoLinkedList.AddNodeAtPosition(21, 2);
 
+            //Remove Node By Position
+            Console.WriteLine("After Removing Node by Position: ");
+            demoLinkedList.RemoveNodeAtPosition(2);
+
             Console.ReadKey();
 
         }

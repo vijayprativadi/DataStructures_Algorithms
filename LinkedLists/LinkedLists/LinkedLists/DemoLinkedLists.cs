@@ -70,6 +70,24 @@ namespace LinkedLists
             GetAllNodesWithPointers();
         }
 
+        public void RemoveNodeAtPosition(int nodePosition)
+        {
+            int lengthofLinkedList = GetLengthofLinkedList();
+
+            if (nodePosition <= lengthofLinkedList)
+            {
+                Node previousNode = GetNodeAtPosition(nodePosition - 1);
+                Node NextNode = GetNodeAtPosition(nodePosition + 1);
+
+                previousNode.next = NextNode;
+                GetAllNodesWithPointers();
+            }
+            else
+            {
+                Console.WriteLine("Node Position does not exists in Linked List");
+            }
+        }
+
         public void GetAllNodesWithPointers()
         {
             if (head == null)
