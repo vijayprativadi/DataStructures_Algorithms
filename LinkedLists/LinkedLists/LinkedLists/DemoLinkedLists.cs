@@ -88,6 +88,38 @@ namespace LinkedLists
             }
         }
 
+        public void RemoveNodeFromFirst()
+        {
+            if (head != null)
+            {
+                Node tempHeadNextNode = head.next;
+                head = tempHeadNextNode;
+
+            }
+        }
+
+        public void RemoveNodeFromLast()
+        {
+            int lenthofLinkedList = GetLengthofLinkedList();
+            Node previousNode = GetNodeAtPosition(lenthofLinkedList - 1);
+            previousNode.next = null;
+        }
+
+        public void ReverseLinkedList()
+        {
+            Node previous = null;
+            Node current = head;
+            while (current != null)
+            {
+                Node nextTemp = current.next;
+                current.next = previous;
+                previous = current;
+                current = nextTemp;
+            }
+            head = previous;
+
+        }
+
         public void GetAllNodesWithPointers()
         {
             if (head == null)

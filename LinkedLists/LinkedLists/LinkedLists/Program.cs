@@ -52,6 +52,15 @@ namespace LinkedLists
             Console.WriteLine("After Removing Node by Position: ");
             demoLinkedList.RemoveNodeAtPosition(2);
 
+            //Remove First Node
+            demoLinkedList.RemoveNodeFromFirst();
+            
+            //Remove Last Node
+            demoLinkedList.RemoveNodeFromLast();
+
+            //Reverse Linked List
+            demoLinkedList.ReverseLinkedList();
+
             Console.ReadKey();
 
         }
