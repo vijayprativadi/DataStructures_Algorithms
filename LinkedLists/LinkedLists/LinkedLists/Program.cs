@@ -10,56 +10,56 @@ namespace LinkedLists
     {
         static void Main(string[] args)
         {
-            DemoLinkedLists demoLinkedList = new DemoLinkedLists();
+            SingleLinkedLists singleLinkedList = new SingleLinkedLists();
             
             //Adding Head
-            demoLinkedList.AddNodeAtFirst(34);
-            demoLinkedList.AddNodeAtFirst(77);
+            singleLinkedList.AddNodeAtFirst(34);
+            singleLinkedList.AddNodeAtFirst(77);
 
             //Adding Tail
-            demoLinkedList.AddNodeAtLast(51);
+            singleLinkedList.AddNodeAtLast(51);
 
             //Print Specific Node
-            demoLinkedList.GetSpecificNodeValueByPosition(3);
+            singleLinkedList.GetSpecificNodeValueByPosition(3);
 
             //Print Linked List
-            demoLinkedList.GetAllNodesWithPointers();
+            singleLinkedList.GetAllNodesWithPointers();
 
             //Find Length of Linked List
-            Console.WriteLine("Length of the Linked List is {0}", demoLinkedList.GetLengthofLinkedList());
+            Console.WriteLine("Length of the Linked List is {0}", singleLinkedList.GetLengthofLinkedList());
 
             //Check If node exists 
             int nodePosition;
-            bool nodeExists = demoLinkedList.CheckIfNodeExists(51, out nodePosition);
+            bool nodeExists = singleLinkedList.CheckIfNodeExists(51, out nodePosition);
             Console.WriteLine(nodeExists ? "Node exists at " + nodePosition : "Node does not exists");
 
             //Get Node By Value & Position
-            Console.WriteLine("Getting Node By Value & Position: " + demoLinkedList.GetNodeByValueandPosition(51, 3).data);
+            Console.WriteLine("Getting Node By Value & Position: " + singleLinkedList.GetNodeByValueandPosition(51, 3).data);
 
             //Get Node By Position
-            Console.WriteLine("Getting Node By Position: " + demoLinkedList.GetNodeAtPosition(3).data);
+            Console.WriteLine("Getting Node By Position: " + singleLinkedList.GetNodeAtPosition(3).data);
 
             //Get Previous Node
-            Console.WriteLine("Previous Node is: " + demoLinkedList.GetPreviousNode(34).data);
+            Console.WriteLine("Previous Node is: " + singleLinkedList.GetPreviousNode(34).data);
 
             //Get Next Node
-            Console.WriteLine("Next Node is: " + demoLinkedList.GetNextNode(34).data);
+            Console.WriteLine("Next Node is: " + singleLinkedList.GetNextNode(34).data);
 
             //Add a Node By Value & Position
-            demoLinkedList.AddNodeAtPosition(21, 2);
+            singleLinkedList.AddNodeAtPosition(21, 2);
 
             //Remove Node By Position
             Console.WriteLine("After Removing Node by Position: ");
-            demoLinkedList.RemoveNodeAtPosition(2);
+            singleLinkedList.RemoveNodeAtPosition(2);
 
             //Remove First Node
-            demoLinkedList.RemoveNodeFromFirst();
+            singleLinkedList.RemoveNodeFromFirst();
             
             //Remove Last Node
-            demoLinkedList.RemoveNodeFromLast();
+            singleLinkedList.RemoveNodeFromLast();
 
             //Reverse Linked List
-            demoLinkedList.ReverseLinkedList();
+            singleLinkedList.ReverseLinkedList();
 
             Console.ReadKey();
 

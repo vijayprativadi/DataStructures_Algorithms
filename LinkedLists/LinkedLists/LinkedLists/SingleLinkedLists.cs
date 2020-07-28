@@ -18,7 +18,7 @@ namespace LinkedLists
         public int data;
     }
 
-    public class DemoLinkedLists
+    public class SingleLinkedLists
     {
         Node head;
 
