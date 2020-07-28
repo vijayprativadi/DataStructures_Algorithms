@@ -13,50 +13,50 @@ namespace LinkedLists
             SingleLinkedLists singleLinkedList = new SingleLinkedLists();
             
             //Adding Head
-            singleLinkedList.AddNodeAtFirst(34);
-            singleLinkedList.AddNodeAtFirst(77);
+            singleLinkedList.AddSingleLinkedListNodeAtFirst(34);
+            singleLinkedList.AddSingleLinkedListNodeAtFirst(77);
 
             //Adding Tail
-            singleLinkedList.AddNodeAtLast(51);
+            singleLinkedList.AddSingleLinkedListNodeAtLast(51);
 
-            //Print Specific Node
-            singleLinkedList.GetSpecificNodeValueByPosition(3);
+            //Print Specific SingleLinkedListNode
+            singleLinkedList.GetSpecificSingleLinkedListNodeValueByPosition(3);
 
             //Print Linked List
-            singleLinkedList.GetAllNodesWithPointers();
+            singleLinkedList.GetAllSingleLinkedListNodesWithPointers();
 
             //Find Length of Linked List
             Console.WriteLine("Length of the Linked List is {0}", singleLinkedList.GetLengthofLinkedList());
 
-            //Check If node exists 
-            int nodePosition;
-            bool nodeExists = singleLinkedList.CheckIfNodeExists(51, out nodePosition);
-            Console.WriteLine(nodeExists ? "Node exists at " + nodePosition : "Node does not exists");
+            //Check If singleLinkedListNode exists 
+            int singleLinkedListNodePosition;
+            bool singleLinkedListNodeExists = singleLinkedList.CheckIfSingleLinkedListNodeExists(51, out singleLinkedListNodePosition);
+            Console.WriteLine(singleLinkedListNodeExists ? "SingleLinkedListNode exists at " + singleLinkedListNodePosition : "SingleLinkedListNode does not exists");
 
-            //Get Node By Value & Position
-            Console.WriteLine("Getting Node By Value & Position: " + singleLinkedList.GetNodeByValueandPosition(51, 3).data);
+            //Get SingleLinkedListNode By Value & Position
+            Console.WriteLine("Getting SingleLinkedListNode By Value & Position: " + singleLinkedList.GetSingleLinkedListNodeByValueandPosition(51, 3).data);
 
-            //Get Node By Position
-            Console.WriteLine("Getting Node By Position: " + singleLinkedList.GetNodeAtPosition(3).data);
+            //Get SingleLinkedListNode By Position
+            Console.WriteLine("Getting SingleLinkedListNode By Position: " + singleLinkedList.GetSingleLinkedListNodeAtPosition(3).data);
 
-            //Get Previous Node
-            Console.WriteLine("Previous Node is: " + singleLinkedList.GetPreviousNode(34).data);
+            //Get Previous SingleLinkedListNode
+            Console.WriteLine("Previous SingleLinkedListNode is: " + singleLinkedList.GetPreviousSingleLinkedListNode(34).data);
 
-            //Get Next Node
-            Console.WriteLine("Next Node is: " + singleLinkedList.GetNextNode(34).data);
+            //Get Next SingleLinkedListNode
+            Console.WriteLine("Next SingleLinkedListNode is: " + singleLinkedList.GetNextSingleLinkedListNode(34).data);
 
-            //Add a Node By Value & Position
-            singleLinkedList.AddNodeAtPosition(21, 2);
+            //Add a SingleLinkedListNode By Value & Position
+            singleLinkedList.AddSingleLinkedListNodeAtPosition(21, 2);
 
-            //Remove Node By Position
-            Console.WriteLine("After Removing Node by Position: ");
-            singleLinkedList.RemoveNodeAtPosition(2);
+            //Remove SingleLinkedListNode By Position
+            Console.WriteLine("After Removing SingleLinkedListNode by Position: ");
+            singleLinkedList.RemoveSingleLinkedListNodeAtPosition(2);
 
-            //Remove First Node
-            singleLinkedList.RemoveNodeFromFirst();
+            //Remove First SingleLinkedListNode
+            singleLinkedList.RemoveSingleLinkedListNodeFromFirst();
             
-            //Remove Last Node
-            singleLinkedList.RemoveNodeFromLast();
+            //Remove Last SingleLinkedListNode
+            singleLinkedList.RemoveSingleLinkedListNodeFromLast();
 
             //Reverse Linked List
             singleLinkedList.ReverseLinkedList();

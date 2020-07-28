@@ -6,112 +6,112 @@ using System.Threading.Tasks;
 
 namespace LinkedLists
 {
-    public class Node
+    public class SingleLinkedListNode
     {
-        public Node(int data)
+        public SingleLinkedListNode(int data)
         {
             this.data = data;
             this.next = null;
         }
 
-        public Node next;
+        public SingleLinkedListNode next;
         public int data;
     }
 
     public class SingleLinkedLists
     {
-        Node head;
+        SingleLinkedListNode head;
 
-        public void AddNodeAtFirst(int data)
+        public void AddSingleLinkedListNodeAtFirst(int data)
         {
             if (head == null)
             {
-                head = new Node(data);
+                head = new SingleLinkedListNode(data);
             }
             else
             {
-                Node node = new Node(data);
-                node.next = head;
-                head = node;
+                SingleLinkedListNode singleLinkedListNode = new SingleLinkedListNode(data);
+                singleLinkedListNode.next = head;
+                head = singleLinkedListNode;
             }
         }
 
-        public void AddNodeAtLast(int data)
+        public void AddSingleLinkedListNodeAtLast(int data)
         {
             if (head == null)
             {
-                head = new Node(data);
+                head = new SingleLinkedListNode(data);
             }
             else
             {
-                Node lastNode = GetLastNode();
-                Node newNode = new Node(data);
-                lastNode.next = newNode;
-                newNode.next = null;
+                SingleLinkedListNode lastSingleLinkedListNode = GetLastSingleLinkedListNode();
+                SingleLinkedListNode newSingleLinkedListNode = new SingleLinkedListNode(data);
+                lastSingleLinkedListNode.next = newSingleLinkedListNode;
+                newSingleLinkedListNode.next = null;
             }
         }
 
-        public void AddNodeAtPosition(int data, int position)
+        public void AddSingleLinkedListNodeAtPosition(int data, int position)
         {
-            Node node = new Node(data);
+            SingleLinkedListNode singleLinkedListNode = new SingleLinkedListNode(data);
             if (position == 1)
             {
-                AddNodeAtFirst(data);
+                AddSingleLinkedListNodeAtFirst(data);
             }
             else
             {
-                Node previousNode = GetNodeAtPosition(position - 1);
-                Node nextNode = GetNodeAtPosition(position);
+                SingleLinkedListNode previousSingleLinkedListNode = GetSingleLinkedListNodeAtPosition(position - 1);
+                SingleLinkedListNode nextSingleLinkedListNode = GetSingleLinkedListNodeAtPosition(position);
 
-                previousNode.next = node;
-                node.next = nextNode;
+                previousSingleLinkedListNode.next = singleLinkedListNode;
+                singleLinkedListNode.next = nextSingleLinkedListNode;
 
             }
-            GetAllNodesWithPointers();
+            GetAllSingleLinkedListNodesWithPointers();
         }
 
-        public void RemoveNodeAtPosition(int nodePosition)
+        public void RemoveSingleLinkedListNodeAtPosition(int singleLinkedListNodePosition)
         {
             int lengthofLinkedList = GetLengthofLinkedList();
 
-            if (nodePosition <= lengthofLinkedList)
+            if (singleLinkedListNodePosition <= lengthofLinkedList)
             {
-                Node previousNode = GetNodeAtPosition(nodePosition - 1);
-                Node NextNode = GetNodeAtPosition(nodePosition + 1);
+                SingleLinkedListNode previousSingleLinkedListNode = GetSingleLinkedListNodeAtPosition(singleLinkedListNodePosition - 1);
+                SingleLinkedListNode NextSingleLinkedListNode = GetSingleLinkedListNodeAtPosition(singleLinkedListNodePosition + 1);
 
-                previousNode.next = NextNode;
-                GetAllNodesWithPointers();
+                previousSingleLinkedListNode.next = NextSingleLinkedListNode;
+                GetAllSingleLinkedListNodesWithPointers();
             }
             else
             {
-                Console.WriteLine("Node Position does not exists in Linked List");
+                Console.WriteLine("SingleLinkedListNode Position does not exists in Linked List");
             }
         }
 
-        public void RemoveNodeFromFirst()
+        public void RemoveSingleLinkedListNodeFromFirst()
         {
             if (head != null)
             {
-                Node tempHeadNextNode = head.next;
-                head = tempHeadNextNode;
+                SingleLinkedListNode tempHeadNextSingleLinkedListNode = head.next;
+                head = tempHeadNextSingleLinkedListNode;
 
             }
         }
 
-        public void RemoveNodeFromLast()
+        public void RemoveSingleLinkedListNodeFromLast()
         {
             int lenthofLinkedList = GetLengthofLinkedList();
-            Node previousNode = GetNodeAtPosition(lenthofLinkedList - 1);
-            previousNode.next = null;
+            SingleLinkedListNode previousSingleLinkedListNode = GetSingleLinkedListNodeAtPosition(lenthofLinkedList - 1);
+            previousSingleLinkedListNode.next = null;
         }
 
         public void ReverseLinkedList()
         {
-            Node previous = null;
-            Node current = head;
+            SingleLinkedListNode previous = null;
+            SingleLinkedListNode current = head;
             while (current != null)
             {
-                Node nextTemp = current.next;
+                SingleLinkedListNode nextTemp = current.next;
                 current.next = previous;
                 previous = current;
                 current = nextTemp;
@@ -120,47 +120,47 @@ namespace LinkedLists
 
         }
 
-        public void GetAllNodesWithPointers()
+        public void GetAllSingleLinkedListNodesWithPointers()
         {
             if (head == null)
             {
-                Console.WriteLine("No nodes present");
+                Console.WriteLine("No singleLinkedListNodes present");
             }
             else
             {
-                Node node = head;
+                SingleLinkedListNode singleLinkedListNode = head;
                 int counter = 1;
 
-                while (node != null)
+                while (singleLinkedListNode != null)
                 {
-                    Console.WriteLine("Node at position {0}: ", counter);
-                    Console.WriteLine("Node Value: {0}", node.data);
-                    node = node.next;
+                    Console.WriteLine("SingleLinkedListNode at position {0}: ", counter);
+                    Console.WriteLine("SingleLinkedListNode Value: {0}", singleLinkedListNode.data);
+                    singleLinkedListNode = singleLinkedListNode.next;
                     counter++;
                 }
             }
         }
 
-        public void GetSpecificNodeValueByPosition(int position)
+        public void GetSpecificSingleLinkedListNodeValueByPosition(int position)
         {
             if (head == null)
             {
-                Console.WriteLine("No nodes present");
+                Console.WriteLine("No singleLinkedListNodes present");
             }
             else
             {
-                Node node = head;
+                SingleLinkedListNode singleLinkedListNode = head;
                 int counter = 1;
 
                 while (counter <= GetLengthofLinkedList())
                 {
                     if (counter == position)
                     {
-                        Console.WriteLine("Node at position {0}: ", counter);
-                        Console.WriteLine("Node Value: {0}", node.data);
+                        Console.WriteLine("SingleLinkedListNode at position {0}: ", counter);
+                        Console.WriteLine("SingleLinkedListNode Value: {0}", singleLinkedListNode.data);
                     }
 
-                    node = node.next;
+                    singleLinkedListNode = singleLinkedListNode.next;
                     counter++;
                 }
             }
@@ -171,121 +171,121 @@ namespace LinkedLists
 
             if (head == null) { return 0; }
 
-            Node node = head;
+            SingleLinkedListNode singleLinkedListNode = head;
             int counter = 1;
-            while (node.next != null)
+            while (singleLinkedListNode.next != null)
             {
-                node = node.next;
+                singleLinkedListNode = singleLinkedListNode.next;
                 counter++;
             }
 
             return counter;
         }
 
-        public bool CheckIfNodeExists(int data, out int nodePosition)
+        public bool CheckIfSingleLinkedListNodeExists(int data, out int singleLinkedListNodePosition)
         {
-            Node node = head;
-            nodePosition = -1;
+            SingleLinkedListNode singleLinkedListNode = head;
+            singleLinkedListNodePosition = -1;
             int counter = 1;
-            bool nodeExists = false;
+            bool singleLinkedListNodeExists = false;
 
-            while (node != null)
+            while (singleLinkedListNode != null)
             {
-                if (node.data == data)
+                if (singleLinkedListNode.data == data)
                 {
-                    nodeExists = true;
-                    nodePosition = counter;
+                    singleLinkedListNodeExists = true;
+                    singleLinkedListNodePosition = counter;
                     break;
                 }
-                node = node.next;
+                singleLinkedListNode = singleLinkedListNode.next;
                 counter++;
             }
-            return nodeExists;
+            return singleLinkedListNodeExists;
         }
 
-        public Node GetNodeByValueandPosition(int value, int nodePosition)
+        public SingleLinkedListNode GetSingleLinkedListNodeByValueandPosition(int value, int singleLinkedListNodePosition)
         {
-            Node node = head;
+            SingleLinkedListNode singleLinkedListNode = head;
             int counter = 1;
 
-            if (nodePosition == 1 && node.data == value)
+            if (singleLinkedListNodePosition == 1 && singleLinkedListNode.data == value)
                 return head;
 
-            while (node != null)
+            while (singleLinkedListNode != null)
             {
-                if (node.data == value && nodePosition == counter)
-                    return node;
+                if (singleLinkedListNode.data == value && singleLinkedListNodePosition == counter)
+                    return singleLinkedListNode;
                 else
                 {
-                    node = node.next;
+                    singleLinkedListNode = singleLinkedListNode.next;
                     counter++;
                 }
             }
             return null;
         }
 
-        public Node GetPreviousNode(int value)
+        public SingleLinkedListNode GetPreviousSingleLinkedListNode(int value)
         {
-            Node previousNode = head;
-            int nodePosition;
-            if (CheckIfNodeExists(value, out nodePosition))
+            SingleLinkedListNode previousSingleLinkedListNode = head;
+            int singleLinkedListNodePosition;
+            if (CheckIfSingleLinkedListNodeExists(value, out singleLinkedListNodePosition))
             {
-                if (nodePosition != 1)
+                if (singleLinkedListNodePosition != 1)
                 {
-                    previousNode = GetNodeAtPosition(nodePosition - 1);
+                    previousSingleLinkedListNode = GetSingleLinkedListNodeAtPosition(singleLinkedListNodePosition - 1);
                 }
 
             }
             else
             {
-                Console.WriteLine("Node does not exist");
+                Console.WriteLine("SingleLinkedListNode does not exist");
             }
-            return previousNode;
+            return previousSingleLinkedListNode;
         }
 
-        public Node GetNextNode(int value)
+        public SingleLinkedListNode GetNextSingleLinkedListNode(int value)
         {
-            Node nextNode = head;
-            int nodePosition;
-            if (CheckIfNodeExists(value, out nodePosition))
+            SingleLinkedListNode nextSingleLinkedListNode = head;
+            int singleLinkedListNodePosition;
+            if (CheckIfSingleLinkedListNodeExists(value, out singleLinkedListNodePosition))
             {
-                if (nodePosition != 1)
+                if (singleLinkedListNodePosition != 1)
                 {
-                    nextNode = GetNodeAtPosition(nodePosition + 1);
+                    nextSingleLinkedListNode = GetSingleLinkedListNodeAtPosition(singleLinkedListNodePosition + 1);
                 }
 
             }
             else
             {
-                Console.WriteLine("Node does not exist");
+                Console.WriteLine("SingleLinkedListNode does not exist");
             }
-            return nextNode;
+            return nextSingleLinkedListNode;
         }
 
-        public Node GetNodeAtPosition(int nodePosition)
+        public SingleLinkedListNode GetSingleLinkedListNodeAtPosition(int singleLinkedListNodePosition)
         {
-            Node node = head;
+            SingleLinkedListNode singleLinkedListNode = head;
             int counter = 1;
 
-            if (nodePosition == 1)
+            if (singleLinkedListNodePosition == 1)
                 return head;
 
             while (counter <= GetLengthofLinkedList())
             {
-                if (nodePosition == counter)
-                    return node;
+                if (singleLinkedListNodePosition == counter)
+                    return singleLinkedListNode;
                 else
                 {
-                    node = node.next;
+                    singleLinkedListNode = singleLinkedListNode.next;
                     counter++;
                 }
             }
             return null;
         }
 
-        private Node GetLastNode()
+        private SingleLinkedListNode GetLastSingleLinkedListNode()
         {
-            Node temp = head;
+            SingleLinkedListNode temp = head;
 
             while (temp.next != null)
             {
