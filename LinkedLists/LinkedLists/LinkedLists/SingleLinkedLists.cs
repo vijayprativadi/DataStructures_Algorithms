@@ -120,6 +120,132 @@ namespace LinkedLists
 
         }
 
+        public void ReverseLinkedListGroupBySize(int k)
+        {
+            int lenthofLinkedList = GetLengthofLinkedList();
+            int counter = lenthofLinkedList;
+            int numberofelementsInThisGroup = k;
+            int numberofGroups = 0;
+            int counterforgroup = 1;
+
+            while (counter >= k)
+            {
+                numberofGroups++;
+                counter = counter - k;
+            }
+
+            if (counter < k && counter != 0)
+            {
+                numberofGroups++;
+                counter = 0;
+            }
+
+            while (counterforgroup <= numberofGroups)
+            {
+                //DO Something
+
+
+                numberofelementsInThisGroup = lenthofLinkedList - numberofelementsInThisGroup;
+                counterforgroup++;
+            }
+        }
+
+        public void mergeTwoLinkedList(SingleLinkedLists firstLinkedList, SingleLinkedLists secondLinkedList)
+        {
+            SingleLinkedLists mergedLinkedList = new SingleLinkedLists();
+            SingleLinkedListNode tempFirstLinkedList = firstLinkedList.head;
+            SingleLinkedListNode tempSecondLinkedList = secondLinkedList.head;
+
+            //Creating temp
+            while (tempFirstLinkedList != null && tempSecondLinkedList != null)
+            {
+                //Do Something and Insert into Final MergeLinkedList
+                if (tempFirstLinkedList.data <= tempSecondLinkedList.data)
+                {
+                    //Head
+                    mergedLinkedList.AddSingleLinkedListNodeAtLast(tempFirstLinkedList.data);
+                    mergedLinkedList.AddSingleLinkedListNodeAtLast(tempSecondLinkedList.data);
+                }
+                else if (tempSecondLinkedList.data <= tempFirstLinkedList.data)
+                {
+                    //Head
+                    mergedLinkedList.AddSingleLinkedListNodeAtLast(tempSecondLinkedList.data);
+                    mergedLinkedList.AddSingleLinkedListNodeAtLast(tempFirstLinkedList.data);
+                }
+
+                tempFirstLinkedList = tempFirstLinkedList.next;
+                tempSecondLinkedList = tempSecondLinkedList.next;
+            }
+
+            #region Commented Code
+            //while (tempFirstLinkedList != null)
+            //{
+            //    mergedLinkedList.AddSingleLinkedListNodeAtLast(tempFirstLinkedList.data);
+            //    tempFirstLinkedList = tempFirstLinkedList.next;
+            //}
+
+            //while (tempSecondLinkedList != null)
+            //{
+            //    mergedLinkedList.AddSingleLinkedListNodeAtLast(tempSecondLinkedList.data);
+            //    tempSecondLinkedList = tempSecondLinkedList.next;
+            //}
+
+            //SingleLinkedListNode temp1 = mergedLinkedList.head;
+            //while (mergedLinkedList != null)
+            //{
+            //    SingleLinkedListNode temp2 = temp1.next;
+            //    SingleLinkedListNode temp3 = null;
+            //    if (temp2 != null && temp1.data > temp2.data)
+            //    {
+            //        temp3 = temp2;
+            //        temp2 = temp1;
+            //        temp1 = temp3;
+            //    }
+            //    temp1 = temp1.next;
+            //}
+
+            //mergedLinkedList.GetAllSingleLinkedListNodesWithPointers();
+            #endregion Commented Code
+        }
+
+        //public void ReverseNodesInLinkedList(int k)
+        //{
+        //    int i = 1;
+        //    int j = k;
+        //    while (j <= GetLengthofLinkedList())
+        //    {
+        //        ReverseNodes(i, j);
+        //        i = i + k;
+        //        j = j + k;
+        //    }
+        //}
+
+        //private void ReverseNodes(int i, int j)
+        //{
+        //    while(i!=j && i<j)
+        //    {
+        //        SingleLinkedListNode firstNode = GetSingleLinkedListNodeAtPosition(i);
+        //        SingleLinkedListNode secondNode = GetSingleLinkedListNodeAtPosition(j);
+
+        //        SingleLinkedListNode firstNextNode = firstNode.next;
+        //        SingleLinkedListNode secondNextNode = secondNode.next;
+
+        //        SingleLinkedListNode temp;
+
+        //        temp = secondNode;
+        //        secondNode = firstNode;
+        //        firstNode = temp;
+        //        SingleLinkedListNode t1 = head;
+        //        firstNode.next = firstNextNode;
+        //        secondNode.next = secondNextNode;
+        //        SingleLinkedListNode t2 = head;
+        //        i = i + 1;
+        //        j = j - 1;
+        //    }
+
+        //    return;
+        //}
+
         public void GetAllSingleLinkedListNodesWithPointers()
         {
             if (head == null)

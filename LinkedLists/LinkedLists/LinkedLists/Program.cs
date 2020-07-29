@@ -11,10 +11,11 @@ namespace LinkedLists
         static void Main(string[] args)
         {
             SingleLinkedLists singleLinkedList = new SingleLinkedLists();
-            
+
             //Adding Head
             singleLinkedList.AddSingleLinkedListNodeAtFirst(34);
             singleLinkedList.AddSingleLinkedListNodeAtFirst(77);
+            singleLinkedList.AddSingleLinkedListNodeAtLast(45);
 
             //Adding Tail
             singleLinkedList.AddSingleLinkedListNodeAtLast(51);
@@ -54,12 +55,37 @@ namespace LinkedLists
 
             //Remove First SingleLinkedListNode
             singleLinkedList.RemoveSingleLinkedListNodeFromFirst();
-            
+
             //Remove Last SingleLinkedListNode
             singleLinkedList.RemoveSingleLinkedListNodeFromLast();
 
             //Reverse Linked List
             singleLinkedList.ReverseLinkedList();
+
+            //Console.WriteLine("************** BEFORE *************");
+            //singleLinkedList.GetAllSingleLinkedListNodesWithPointers();
+            //singleLinkedList.ReverseNodesInLinkedList(2);
+            //Console.WriteLine("************** AFTER *************");
+            //singleLinkedList.GetAllSingleLinkedListNodesWithPointers();
+            //singleLinkedList.ReverseLinkedListGroupBySize(3);
+
+            SingleLinkedLists firstLinkedList = new SingleLinkedLists();
+
+            //Head
+            firstLinkedList.AddSingleLinkedListNodeAtFirst(1);
+            firstLinkedList.AddSingleLinkedListNodeAtLast(2);
+            //Tail
+            firstLinkedList.AddSingleLinkedListNodeAtLast(4);
+
+            SingleLinkedLists secondLinkedList = new SingleLinkedLists();
+
+            //Head
+            secondLinkedList.AddSingleLinkedListNodeAtFirst(1);
+            secondLinkedList.AddSingleLinkedListNodeAtLast(3);
+            //Tail
+            secondLinkedList.AddSingleLinkedListNodeAtLast(4);
+
+            singleLinkedList.MergeTwoLinkedList(firstLinkedList, secondLinkedList);
 
             Console.ReadKey();
 
