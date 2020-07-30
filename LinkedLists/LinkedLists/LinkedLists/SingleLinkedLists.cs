@@ -147,6 +147,25 @@ namespace LinkedLists
             odd.next = evenHead;
         }
 
+        public void IsLinkedListPalindrome()
+        {
+            int lenthofLinkedList = GetLengthofLinkedList();
+            string result = "It's a Palindrome";
+            int counter = 1;
+            for (int i = lenthofLinkedList; i > (lenthofLinkedList / 2); i--)
+            {
+                SingleLinkedListNode tempLastNode = GetSingleLinkedListNodeAtPosition(i);
+                SingleLinkedListNode tempfirstNode = GetSingleLinkedListNodeAtPosition(counter);
+                if (tempLastNode.data != tempfirstNode.data)
+                {
+                    result = "Not a Palindrome";
+                }
+                counter++;
+            }
+            Console.WriteLine(result);
+            
+        }
+
         public void ReverseLinkedList()
         {
             SingleLinkedListNode previous = null;
