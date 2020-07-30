@@ -105,6 +105,48 @@ namespace LinkedLists
             previousSingleLinkedListNode.next = null;
         }
 
+        public void FindDuplicates()
+        {
+            SingleLinkedListNode temp1 = head;
+            SingleLinkedListNode temp2 = head.next;
+            while (temp1 != null)
+            {
+                while (temp2 != null)
+                {
+                    if (temp2.data == temp1.data)
+                    {
+                        Console.WriteLine("Duplicate Value is: " + temp1.data);
+                    }
+                    temp2 = temp2.next;
+                }
+                temp1 = temp1.next;
+
+                if (temp1 != null)
+                {
+                    temp2 = temp1.next;
+                }
+            }
+        }
+
+        public void OddEvenLinkedList()
+        {
+            SingleLinkedListNode odd = head;
+            SingleLinkedListNode oddHead = head;
+            
+            SingleLinkedListNode even = head.next;
+            SingleLinkedListNode evenHead = head.next;
+
+            while (even != null && even.next != null)
+            {
+
+                odd.next = odd.next.next;
+                even.next = even.next.next;
+                odd = odd.next;
+                even = even.next;
+            }
+            odd.next = evenHead;
+        }
+
         public void ReverseLinkedList()
         {
             SingleLinkedListNode previous = null;
@@ -120,37 +162,37 @@ namespace LinkedLists
 
         }
 
-        public void ReverseLinkedListGroupBySize(int k)
-        {
-            int lenthofLinkedList = GetLengthofLinkedList();
-            int counter = lenthofLinkedList;
-            int numberofelementsInThisGroup = k;
-            int numberofGroups = 0;
-            int counterforgroup = 1;
+        //public void ReverseLinkedListGroupBySize(int k)
+        //{
+        //    int lenthofLinkedList = GetLengthofLinkedList();
+        //    int counter = lenthofLinkedList;
+        //    int numberofelementsInThisGroup = k;
+        //    int numberofGroups = 0;
+        //    int counterforgroup = 1;
 
-            while (counter >= k)
-            {
-                numberofGroups++;
-                counter = counter - k;
-            }
+        //    while (counter >= k)
+        //    {
+        //        numberofGroups++;
+        //        counter = counter - k;
+        //    }
 
-            if (counter < k && counter != 0)
-            {
-                numberofGroups++;
-                counter = 0;
-            }
+        //    if (counter < k && counter != 0)
+        //    {
+        //        numberofGroups++;
+        //        counter = 0;
+        //    }
 
-            while (counterforgroup <= numberofGroups)
-            {
-                //DO Something
+        //    while (counterforgroup <= numberofGroups)
+        //    {
+        //        //DO Something
 
 
-                numberofelementsInThisGroup = lenthofLinkedList - numberofelementsInThisGroup;
-                counterforgroup++;
-            }
-        }
+        //        numberofelementsInThisGroup = lenthofLinkedList - numberofelementsInThisGroup;
+        //        counterforgroup++;
+        //    }
+        //}
 
-        public void mergeTwoLinkedList(SingleLinkedLists firstLinkedList, SingleLinkedLists secondLinkedList)
+        public void MergeTwoLinkedList(SingleLinkedLists firstLinkedList, SingleLinkedLists secondLinkedList)
         {
             SingleLinkedLists mergedLinkedList = new SingleLinkedLists();
             SingleLinkedListNode tempFirstLinkedList = firstLinkedList.head;
