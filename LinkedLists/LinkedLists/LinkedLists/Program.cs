@@ -126,6 +126,16 @@ namespace LinkedLists
 
             palindromeLinkedList.IsLinkedListPalindrome();
 
+            //Rotate Linked List
+            SingleLinkedLists rotateLinkedList = new SingleLinkedLists();
+            rotateLinkedList.AddSingleLinkedListNodeAtFirst(5);
+            rotateLinkedList.AddSingleLinkedListNodeAtFirst(4);
+            rotateLinkedList.AddSingleLinkedListNodeAtFirst(3);
+            rotateLinkedList.AddSingleLinkedListNodeAtFirst(2);
+            rotateLinkedList.AddSingleLinkedListNodeAtFirst(1);
+
+            rotateLinkedList.RotateLinkedList(2);
+
             #endregion
 
             Console.ReadKey();

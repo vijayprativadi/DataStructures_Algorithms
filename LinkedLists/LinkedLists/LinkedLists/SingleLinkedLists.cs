@@ -166,6 +166,39 @@ namespace LinkedLists
             
         }
 
+        public void RotateLinkedList(int k)
+        {
+            //SingleLinkedListNode newhead = head;
+            SingleLinkedListNode temp = head;
+
+            while (k > 0)
+            {
+                SingleLinkedListNode lastNode = head;
+                while (lastNode.next.next != null)
+                {
+                    lastNode = lastNode.next;
+                }
+
+
+                //Last Node 
+                temp = head;
+                head = lastNode.next;
+                head.next = temp;
+                lastNode.next = null;
+
+                //SingleLinkedListNode temp = Intialhead;
+                //while (temp != null)
+                //{
+                //    temp = temp;
+                //}
+                //tempHead.next = head;
+                //tempHead = lastNode;
+
+                k--;
+            }
+            GetAllSingleLinkedListNodesWithPointers();
+        }
+
         public void ReverseLinkedList()
         {
             SingleLinkedListNode previous = null;
